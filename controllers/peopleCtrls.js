@@ -33,7 +33,7 @@ const getPeople = (req, res) => {
 const createPeople = (req, res) => {
  
     // res.send('createPeople')
-    
+
     //20 instead of just res.send we will have a create method that creates a person based on the req.body
     // but the page will not show the req.body yet, this will be done in the frontend portion of our application 
     db.People.create(req.body)
@@ -46,8 +46,30 @@ const createPeople = (req, res) => {
 	})
 }
 
+// 21 now lets create updatePerson 
+const updatePerson =(req,res) => {
+
+    // res.send("this is create people")
+    db.People.findByIdAndUpdate(req.params.id, req.body, {new:true})
+	.then((updatedPerson) => {
+		if(!updatedPerson) {
+			res.status(400).json({message: "Cannot create Person"})
+		} else {
+			res.status(201).json({data: updatedPerson, message:'updated person'})
+		}
+	})
+
+
+
+
+}
+
+
+
+
 // 11, 12, added in the module exports for getpeople and createpeople
 module.exports = {
     getPeople, 
-    createPeople
+    createPeople, 
+    updatePerson
 }

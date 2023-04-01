@@ -10,7 +10,8 @@ router.get('/', peopleCtrl.getPeople)
 //adding in the create people route
 router.post('/', peopleCtrl.createPeople)
 
-
+// 22 adding in the update person route 
+router.put('./:id', peopleCtrl.updatePerson)
 
 
 module.exports = router
