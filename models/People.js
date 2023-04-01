@@ -12,5 +12,4 @@ const PeopleSchema = new mongoose.Schema({
 // now we need to create a model from our schema 
 const People = mongoose.model("People", PeopleSchema)
 
-
 module.exports = People

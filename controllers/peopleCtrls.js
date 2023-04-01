@@ -1,11 +1,32 @@
 // const db = require('../models') //this is where our db mongoose connection lives as well as our models
+// 18 we need to define our DB here
+const db = require('../models')
+console.log(db)
+
+
+
 
 //7 create the people controller. Here we create get people
 // Get people is a function that handles GET requests to retrieve a list of people from the database
 const getPeople = (req, res) => {
     // db.People.find({})  <-- db has all our models in it so we can use any of them here with one line! 
-    res.send('getPeople')
+    // res.send('getPeople')
+
+    // 19 now instead of just res.send we can now show the people on the page 
+    // instead of using await and async we can use .then
+    db.People.find({})
+    .then((foundPeople) => {
+        // the ! means if people cannot be found, all the ! does is FLIPs the value 
+        if(!foundPeople){
+            res.status(404).json({message:"Cannot find people"})
+        // else if they can be found, then success 
+        } else {
+            res.status(200).json({data: foundPeople})
+        }
+    })
 }
+
+
 
 //8 here we have createPeople
 // createPeople is a function that handles POST requests to create a new person in the database
