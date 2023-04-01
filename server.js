@@ -31,7 +31,8 @@ app.get("/", (req,res) => {
 const routes = require('./routes/index.js')
 app.use('/', routes)
 
-
+// 4 catch route if it doesnt match to anything we will sent this response 
+app.use((req, res) => {res.status(404).json({message: "Not a proper route- 404 Error"})})
 
 // LISTENER
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}` ))
