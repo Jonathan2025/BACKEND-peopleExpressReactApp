@@ -32,7 +32,18 @@ const getPeople = (req, res) => {
 // createPeople is a function that handles POST requests to create a new person in the database
 const createPeople = (req, res) => {
  
-    res.send('createPeople')
+    // res.send('createPeople')
+    
+    //20 instead of just res.send we will have a create method that creates a person based on the req.body
+    // but the page will not show the req.body yet, this will be done in the frontend portion of our application 
+    db.People.create(req.body)
+	.then((createdPerson) => {
+		if(!createdPerson) {
+			res.status(404).json({message: "Cannot create Person"})
+		} else {
+			res.status(201).json({data: createdPerson})
+		}
+	})
 }
 
 // 11, 12, added in the module exports for getpeople and createpeople
