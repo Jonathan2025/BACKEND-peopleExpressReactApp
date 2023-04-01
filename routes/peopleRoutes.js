@@ -14,4 +14,7 @@ router.post('/', peopleCtrl.createPeople)
 router.put('./:id', peopleCtrl.updatePerson)
 
 
+//24 Adding in the delete person route 
+router.delete('./:id', peopleCtrl.deletePerson)
+
 module.exports = router

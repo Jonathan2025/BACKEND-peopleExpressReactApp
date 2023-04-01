@@ -58,18 +58,29 @@ const updatePerson =(req,res) => {
 			res.status(201).json({data: updatedPerson, message:'updated person'})
 		}
 	})
-
-
-
-
 }
 
 
+
+//23 need a delete person method 
+const deletePerson =(req,res) => {
+    // res.send("this is create people")
+    db.People.findByIdAndDelete(req.params.id)
+	.then((deletedPerson) => {
+		if(!deletedPerson) {
+			res.status(400).json({message: "Cannot delete Person"})
+		} else {
+			res.status(201).json({data: deletedPerson, message:'deleted person'})
+		}
+	})
+
+}
 
 
 // 11, 12, added in the module exports for getpeople and createpeople
 module.exports = {
     getPeople, 
     createPeople, 
-    updatePerson
+    updatePerson, 
+    deletePerson
 }
