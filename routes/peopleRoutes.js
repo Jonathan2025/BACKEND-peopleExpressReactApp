@@ -7,7 +7,8 @@ const {peopleCtrl} = require('../controllers')
 // get people will be a method in our peoples controller, so we are linking to that route and the specific getPeople route
 router.get('/', peopleCtrl.getPeople)
 
-
+//adding in the create people route
+router.post('/', peopleCtrl.createPeople)
 
 
 
