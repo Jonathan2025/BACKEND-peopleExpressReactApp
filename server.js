@@ -27,5 +27,11 @@ app.get("/", (req,res) => {
 })
 
 
+// 3) Now import the availiable routes in the /routes/index.js. In unit 2 we would import the controllers
+const routes = require('./routes/index.js')
+app.use('/', routes)
+
+
+
 // LISTENER
 app.listen(PORT, () => console.log(`Listening on PORT ${PORT}` ))
