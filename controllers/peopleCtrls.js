@@ -14,6 +14,7 @@ const createPeople = (req, res) => {
     res.send('createPeople')
 }
 
+// 11, 12, added in the module exports for getpeople and createpeople
 module.exports = {
     getPeople, 
     createPeople
