@@ -4,8 +4,6 @@ const db = require('../models')
 console.log(db)
 
 
-
-
 //7 create the people controller. Here we create get people
 // Get people is a function that handles GET requests to retrieve a list of people from the database
 const getPeople = (req, res) => {
@@ -25,8 +23,6 @@ const getPeople = (req, res) => {
         }
     })
 }
-
-
 
 //8 here we have createPeople
 // createPeople is a function that handles POST requests to create a new person in the database
@@ -60,8 +56,6 @@ const updatePerson =(req,res) => {
 	})
 }
 
-
-
 //23 need a delete person method 
 const deletePerson =(req,res) => {
     // res.send("this is create people")
@@ -75,7 +69,6 @@ const deletePerson =(req,res) => {
 	})
 
 }
-
 
 // 11, 12, added in the module exports for getpeople and createpeople
 module.exports = {

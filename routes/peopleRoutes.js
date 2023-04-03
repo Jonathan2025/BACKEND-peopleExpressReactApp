@@ -11,10 +11,9 @@ router.get('/', peopleCtrl.getPeople)
 router.post('/', peopleCtrl.createPeople)
 
 // 22 adding in the update person route 
-router.put('./:id', peopleCtrl.updatePerson)
-
+router.put('/:id', peopleCtrl.updatePerson)
 
 //24 Adding in the delete person route 
-router.delete('./:id', peopleCtrl.deletePerson)
+router.delete('/:id', peopleCtrl.deletePerson)
 
 module.exports = router
